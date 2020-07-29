@@ -17,6 +17,7 @@ import view.GUICallback;
 
 public class ToolBarListener implements ActionListener {
 	GameEngine engine = (GameEngine) new GameEngineImpl();
+	private static int IDPlayer = 1;
 
 	// ToolBarListener constructor
 	public ToolBarListener(PropertyChange propertyChange) {
@@ -74,6 +75,18 @@ public class ToolBarListener implements ActionListener {
 			}
 
 			else {
+				
+				String[] numbers = new String[39];
+				
+				for(int i = 0 ; i < 38 ; i++) {
+					numbers[i] += i+1;
+				}
+				
+				
+
+				x = JOptionPane.showOptionDialog(null, "Returns the position of your choice on the array",
+						"Click a button", JOptionPane.DEFAULT_OPTION, JOptionPane.INFORMATION_MESSAGE, null, numbers,
+						numbers[0]);
 
 				numberBet = (int) Double.parseDouble(JOptionPane.showInputDialog("Enter slot number"));
 
@@ -103,8 +116,12 @@ public class ToolBarListener implements ActionListener {
 			String playerName;
 			int points = 0;
 
-			playerID = JOptionPane.showInputDialog("Enter PlayerID");
+			playerID = ""+IDPlayer;
+			
+			IDPlayer++;
+			
 			playerName = JOptionPane.showInputDialog("Enter player name");
+			
 			points = (int) Double.parseDouble(JOptionPane.showInputDialog("Enter Amount of points for player"));
 
 			// if player is not null
