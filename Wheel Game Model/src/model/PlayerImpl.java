@@ -11,12 +11,12 @@ import model.wheel.Slot;
 public class PlayerImpl implements Player {
 	GameEngine engine = (GameEngine) new GameEngineImpl();
 
-	private String playerID;
+	private int playerID;
 	private String playerName;
 	private int points;
 	private Bet bet;
 
-	public PlayerImpl(String playerID, String playerName, int points)
+	public PlayerImpl(int playerID, String playerName, int points)
 			throws NullPointerException, IllegalArgumentException {
 		this.playerID = playerID;
 		this.playerName = playerName;
@@ -27,8 +27,7 @@ public class PlayerImpl implements Player {
 	}
 
 	@Override
-	public String getId() {
-
+	public int getId() {
 		// return the players ID
 		return playerID;
 	}

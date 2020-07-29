@@ -39,14 +39,14 @@ public class PropertyChange {
 
 	
 	// Add player change
-	public void addPlayer(String ID) {
-		this.pcs.firePropertyChange(Events.ADDED_PLAYER, null, ID);
+	public void addPlayer(int i) {
+		this.pcs.firePropertyChange(Events.ADDED_PLAYER, null, i);
 	}
 
 	
 	// Remove player change
-	public void removePlayer(String id) {
-		this.pcs.firePropertyChange(Events.REMOVE_PLAYER, id, null);
+	public void removePlayer(int i) {
+		this.pcs.firePropertyChange(Events.REMOVE_PLAYER, i, null);
 	}
 
 	

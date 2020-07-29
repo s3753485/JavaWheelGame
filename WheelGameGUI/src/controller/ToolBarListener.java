@@ -35,12 +35,18 @@ public class ToolBarListener implements ActionListener {
 
 			// initialize variables
 			String[] options = { "number bet", "color bet" };
-			String playerID;
+			int playerID;
 			int betAmount;
 			int numberBet;
 			BetType betType = null;
 
-			playerID = JOptionPane.showInputDialog("Enter PlayerID");
+			playerID = Integer.parseInt( (String) JOptionPane.showInputDialog(null,
+			        "Text",
+			        null, JOptionPane.INFORMATION_MESSAGE,
+			        null,
+			        null,
+			        "[sample text to help input]"));
+			
 			betAmount = (int) Double.parseDouble(JOptionPane.showInputDialog("Enter amount to bet"));
 			int x = JOptionPane.showOptionDialog(null, "Returns the position of your choice on the array",
 					"Click a button", JOptionPane.DEFAULT_OPTION, JOptionPane.INFORMATION_MESSAGE, null, options,
@@ -70,7 +76,6 @@ public class ToolBarListener implements ActionListener {
 				}
 
 				// Place color bet
-
 				engine.placeBet(playerID, betAmount, betType);
 			}
 
@@ -112,11 +117,11 @@ public class ToolBarListener implements ActionListener {
 		if (e.getActionCommand().equals("Add Player")) {
 
 			// Initialze variables
-			String playerID;
+			int playerID;
 			String playerName;
 			int points = 0;
 
-			playerID = ""+IDPlayer;
+			playerID = IDPlayer;
 			
 			IDPlayer++;
 			
@@ -125,7 +130,7 @@ public class ToolBarListener implements ActionListener {
 			points = (int) Double.parseDouble(JOptionPane.showInputDialog("Enter Amount of points for player"));
 
 			// if player is not null
-			if (!(playerID.equals("")) || !(playerName.equals("")) || points != 0) {
+			if (!(playerName.equals("")) || points != 0) {
 
 				// add player
 				engine.addPlayer(new PlayerImpl(playerID, playerName, points));
@@ -144,22 +149,18 @@ public class ToolBarListener implements ActionListener {
 		if (e.getActionCommand().equals("Remove Player")) {
 
 			// initialize variables
-			String playerID;
+			int playerID;
 
-			playerID = JOptionPane.showInputDialog("Enter PlayerID");
+			playerID = Integer.parseInt( (String) JOptionPane.showInputDialog(
+			        null, "Text",
+			        null, JOptionPane.INFORMATION_MESSAGE,
+			        null,
+			        null,
+			        "[sample text to help input]"));
 
 			// If ID is not null
-			if (!(playerID.equals(""))) {
-
 				// Remove Player
 				engine.removePlayer(playerID);
-			}
-
-			else {
-
-				// Print error
-				JOptionPane.showMessageDialog(null, "Missing information, try again.");
-			}
 		}
 	}
 }

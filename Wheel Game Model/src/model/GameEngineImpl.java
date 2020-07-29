@@ -48,11 +48,11 @@ public class GameEngineImpl implements GameEngine {
 	}
 
 	@Override
-	public void removePlayer(String playerId) throws NullPointerException, IllegalArgumentException {
+	public void removePlayer(int playerId) throws NullPointerException, IllegalArgumentException {
 
 		// Initialize variables
 		Player temp = null;
-		String id;
+		int id;
 
 		// for each player in players array, check if the ID provided matches with a
 		// players id in the array
@@ -60,7 +60,7 @@ public class GameEngineImpl implements GameEngine {
 			id = p.getId();
 
 			// if the ID matches, set "Temp" the the player with the same ID
-			if (id.equals(playerId)) {
+			if (id ==playerId) {
 				temp = p;
 			}
 		}
@@ -83,14 +83,14 @@ public class GameEngineImpl implements GameEngine {
 	}
 
 	@Override
-	public void placeBet(String playerId, int betAmount, BetType betType)
+	public void placeBet(int playerId, int betAmount, BetType betType)
 			throws NullPointerException, IllegalArgumentException {
 
 		// initialize variables
 		ColorBet Bet = (ColorBet) new ColorBetImpl(betAmount, betType);
 		BetType type = Bet.getBetType();
 		Player temp = null;
-		String id;
+		int id;
 
 		// if the betType is not a number
 		if (!(type.equals(BetType.NUMBER))) {
@@ -100,7 +100,7 @@ public class GameEngineImpl implements GameEngine {
 				id = p.getId();
 
 				// ID the id is equal to the ID provided, set temp as that player
-				if (id.equals(playerId)) {
+				if (id == playerId) {
 					temp = p;
 				}
 			}
@@ -116,20 +116,20 @@ public class GameEngineImpl implements GameEngine {
 	}
 
 	@Override
-	public void placeBet(String playerId, int betAmount, int number)
+	public void placeBet(int playerId, int betAmount, int number)
 			throws NullPointerException, IllegalArgumentException {
 
 		// initialize variables
 		NumberBet Bet = (NumberBet) new NumberBetImpl(betAmount, number);
 		Player temp = null;
-		String id;
+		int id;
 
 		// for each player in players, get the the ID.
 		for (Player p : players) {
 			id = p.getId();
 
 			// if the players id is equal to the id provided, set temp as the player
-			if (id.equals(playerId)) {
+			if (id == playerId) {
 				temp = p;
 			}
 

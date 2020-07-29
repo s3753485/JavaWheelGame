@@ -11,14 +11,14 @@ public interface GameEngine extends GameCallbackCollection
 {
 	public void addPlayer(Player player) throws NullPointerException, IllegalArgumentException;
 	
-	public void removePlayer(String playerId) throws NullPointerException, IllegalArgumentException;
+	public void removePlayer(int playerId) throws NullPointerException, IllegalArgumentException;
 	
 	public Collection<Player> getAllPlayers();
 	
-	public void placeBet(String playerId, int betAmount, BetType betType)
+	public void placeBet(int playerId, int betAmount, BetType betType)
 			throws NullPointerException, IllegalArgumentException;
 	
-	public void placeBet(String playerId, int betAmount, int number)
+	public void placeBet(int playerId, int betAmount, int number)
 			throws NullPointerException, IllegalArgumentException;
 	
 	public void resetAllBets();

@@ -25,18 +25,18 @@ public class BasicTestClient
 		// add ConsoleLoggerCallback
 		engine.registerCallback(new ConsoleLoggerCallback(engine));
 		
-		engine.addPlayer(new PlayerImpl("P1", "Player One", 1000));
-		engine.addPlayer(new PlayerImpl("P2", "Player Two", 2000));
-		engine.addPlayer(new PlayerImpl("X3", "Player Three", 3000));
+		engine.addPlayer(new PlayerImpl(1, "Player One", 1000));
+		engine.addPlayer(new PlayerImpl(2, "Player Two", 2000));
+		engine.addPlayer(new PlayerImpl(3, "Player Three", 3000));
 		
 		// removes player
-		engine.removePlayer("X3");
+		engine.removePlayer(3);
 		
 		// place a Color Bet
-		engine.placeBet("P1", 100, BetType.RED);
+		engine.placeBet(1, 100, BetType.RED);
 		
 		// place a Number Bet
-		engine.placeBet("P2", 100, 12);
+		engine.placeBet(2, 100, 12);
 		
 		// testing bets are finalised correctly
 		// (without having to do a full spin or randomised outcome)
@@ -46,10 +46,10 @@ public class BasicTestClient
 		
 		
 		// place a Color Bet
-		engine.placeBet("P1", 100, BetType.BLACK);
+		engine.placeBet(1, 100, BetType.BLACK);
 		
 		// place a Number Bet
-		engine.placeBet("P2", 100, 22);
+		engine.placeBet(2, 100, 22);
 		
 		// spin wheel using default values
 		engine.spinWheel();

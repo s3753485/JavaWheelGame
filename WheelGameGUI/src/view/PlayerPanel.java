@@ -45,7 +45,7 @@ public class PlayerPanel extends JPanel implements PropertyChangeListener {
 
 			// Add cells for all players
 			for (Player p : engine.getAllPlayers()) {
-				if (p.getId().equals(evt.getNewValue())) {
+				if (p.getId() == (int)evt.getNewValue()) {
 					field.add(new JLabel(p.toString()));
 
 				}
@@ -79,7 +79,7 @@ public class PlayerPanel extends JPanel implements PropertyChangeListener {
 		if (evt.getPropertyName() == PropertyChange.Events.PLACE_BET) {
 
 			Player player = (Player) evt.getOldValue();
-			String id = player.getId();
+			int id = player.getId();
 			boolean result = true;
 
 			// update field for all players that have placed a bet

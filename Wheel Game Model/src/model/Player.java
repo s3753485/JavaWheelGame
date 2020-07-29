@@ -6,7 +6,7 @@ import model.wheel.Slot;
 public interface Player
 {
 
-	public String getId();
+	public int getId();
 	
 	
 	public String getName();
