@@ -81,7 +81,7 @@ public class StatusBar extends JPanel implements PropertyChangeListener {
 		if (evt.getPropertyName() == PropertyChange.Events.ADDED_PLAYER) {
 			
 			// Update slot to show that a player has been added
-			String id = (String) evt.getNewValue();
+			int id = (int) evt.getNewValue();
 			s1.setText("Added PlayerID " + id);
 		}
 	}

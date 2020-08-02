@@ -55,7 +55,6 @@ public class PlayerPanel extends JPanel implements PropertyChangeListener {
 				System.out.println(tf);
 				add(tf);
 				revalidate();
-				repaint();
 			}
 		}
 
